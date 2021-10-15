@@ -1,10 +1,39 @@
-This section provides a description of your product and defines it's primary features and functions. The purpose is to give the document reader/reviewer enough information about the product to allow them to easily follow the specification of requirements found in the remainder of the document. Your header for this section should introduce the section with a brief statement such as: "This section provides the reader with an overview of X. The primary operational aspects of the product, from the perspective of end users, maintainers and administrators, are defined here. The key features and functions found in the product, as well as critical user interactions and user interfaces are described in detail." Using words, and pictures or graphics where possible, specify the following:
+Groco is a shopping application which provide the optimal suggestion to shop for groceries. The optimization is based on the user's preferences such as brands, prices and distance. Groco include five main components: item search, recipes search, adding recipes, adding meal plan and navigation.
 
 \subsection{Features \& Functions}
 What the product does and does not do. Specify in words what it looks like, referring to a conceptual diagram/graphic (Figure X).  Define the principle parts/components of the product. Specify the elements in the diagram/graphic that are part(s) of this product as well as any associated external elements (e.g., the Internet, an external web server, a GPS satellite, etc.)
 
 \subsection{External Inputs \& Outputs}
 Describe critical external data flows. What does your product require/expect to receive from end users or external systems (inputs), and what is expected to be created by your product for consumption by end users or external systems (outputs)? In other words, specify here all data/information to flow into and out of your systems. A table works best here, with rows for each critical data element, and columns for name, description and use.
+
+User input
+database input
+
+output
+\begin{table}[]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+Data      & Description                                   & In/Out \\
+\hline
+Keystroke & User type in item to search by using keyboard & In     \\
+\hline
+Device Screen      & Display the result on the screen                                              & Out       \\
+\hline
+          &                                               &        \\
+\hline
+          &                                               &        \\
+\hline
+          &                                               &        \\
+\hline
+          &                                               &        \\
+\hline
+          &                                               &        \\
+\hline
+\end{tabular}
+\caption{External inputs and outputs}
+\end{table}
+
 
 \subsection{Product Interfaces}
 Specify what all operational (visible) interfaces look like to your end-user, administrator, maintainer, etc. Show sample/mocked-up screen shots, graphics of buttons, panels, etc. Refer to the critical external inputs and outputs described in the paragraph above.
