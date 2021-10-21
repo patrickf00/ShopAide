@@ -4,7 +4,7 @@
 %%% Feel free to distribute this template, but please keep to referal to http://www.howtotex.com/ here.
 %%% February 2011
 %%%
-%%% Last updated September 2018 by CDM
+%%% Modified May 2018 by CDM
 
 %%%  Preamble
 \documentclass[11pt,letterpaper]{article}
@@ -27,10 +27,10 @@
 %%% Definitions
 \definecolor{accentcolor}{rgb}{0.0,0.0,0.5} 
 \newcommand{\teamname}{UTA STeam}
-\newcommand{\productname}{Shopping Aide}
+\newcommand{\productname}{Groco}
 \newcommand{\coursename}{CSE 4316: Senior Design I}
-\newcommand{\semester}{Fall 2021}
-\newcommand{\docname}{Project Charter}
+\newcommand{\semester}{Spring 2018}
+\newcommand{\docname}{System Requirements Specification}
 \newcommand{\department}{Department of Computer Science \& Engineering}
 \newcommand{\university}{The University of Texas at Arlington}
 \newcommand{\authors}{Patrick Faulkner \\ Hozefa Tankiwala \\ Andrew Hands \\ Kiran Karki \\ Uyen Do}
@@ -69,7 +69,7 @@
 \vspace{0.5 in}
 \begin{figure}[h!]
 	\centering
-   	\includegraphics[width=0.3\textwidth]{images/TeamLogo.jpg}
+   	\includegraphics[width=0.3\textwidth]{images/whiteTeamLogo.png}
 \end{figure}
 \vspace{0.5 in}
 {\centering \huge \color{accentcolor} \sc \textbf{\teamname \\ \productname} \par}
@@ -84,16 +84,16 @@
 
 %%% Revision History
 \begin{versionhistory}
-  	\vhEntry{0.1}{09.17.2021}{AH}{document creation}
-  	\vhEntry{0.2}{09.24.2021}{PF|UD}{first draft}
-  	\vhEntry{1.0}{10.01.2021}{AH, PF, HT, KK, UD}{complete version 1}
-  	%\vhEntry{0.3}{10.01.2021}{AH}{release candidate 1}
-  	%\vhEntry{1.0}{10.20.2021}{AT|GH|CB}{official release}
-  	%\vhEntry{1.1}{10.31.2021}{AL}{added customer change requests}
+  	\vhEntry{0.1}{10.07.2021}{PF}{document creation}
+  	\vhEntry{0.2}{10.15.2021}{PF|HT|AH|KK|UD}{first draft}
+  	\vhEntry{0.3}{10.12.2015}{PF|HT|AH|KK|UD}{complete draft}
+  %	\vhEntry{1.0}{10.20.2015}{AT|GH|CB}{official release}
+  %	\vhEntry{1.1}{10.31.2015}{AL}{added customer change requests}
 \end{versionhistory}
 \newpage
 
 %%% Table of contents
+\setcounter{tocdepth}{3}
 \tableofcontents
 \newpage
 
@@ -101,40 +101,33 @@
 \listoffigures
 %\listoftables
 \newpage
-\setcounter{table}{0}
 
-%%% Executive summary sections
-\section{Problem Statement}
-\input{tex/problem}
-\section{Methodology}
-\input{tex/methodology}
-\section{Value Proposition}
-\input{tex/value_proposition}
-\section{Development Milestones}
-\input{tex/milestones}
+\section{Product Concept}
+\input{tex/product_concept.tex}
 \newpage
-
-%%% Remaining project charter sections
-\section{Background}
-\input{tex/background}
-\section{Related Work}
-\input{tex/related_work}
-\section{System Overview}
-\input{tex/system_overview}
-\section{Roles \& Responsibilities}
-\input{tex/roles_responsibilities}
-\section{Cost Proposal}
-\input{tex/cost_proposal}
-\section{Facilities \& Equipment}
-\input{tex/facilities_equipment}
-\section{Assumptions}
-\input{tex/assumptions}
-\section{Constraints}
-\input{tex/constraints}
-\section{Risks}
-\input{tex/risks}
-\section{Documentation \& Reporting}
-\input{tex/documentation_reporting}
+\section{Product Description}
+\input{tex/product_description.tex}
+\newpage
+\section{Customer Requirements}
+\input{tex/customer_requirements.tex}
+\newpage
+\section{Packaging Requirements}
+\input{tex/packaging_requirements.tex}
+\newpage
+\section{Performance Requirements}
+\input{tex/performance_requirements.tex}
+\newpage
+\section{Safety Requirements}
+\input{tex/safety_requirements.tex}
+\newpage
+\section{Maintenance \& Support Requirements}
+\input{tex/maintenance_support_requirements}
+\newpage
+\section{Other Requirements}
+\input{tex/other_requirements.tex}
+\newpage
+\section{Future Items}
+\input{tex/future_items}
 \newpage
 
 %%% References
