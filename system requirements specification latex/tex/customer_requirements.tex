@@ -1,32 +1,99 @@
-Include a header paragraph specific to your product here. Customer requirements are those required features and functions specified for and by the intended audience for this product. This section establishes, clearly and concisely, the "look and feel" of the product, what each potential end-user should expect the product do and/or not do. Each requirement specified in this section is associated with a specific customer need that will be satisfied. In general Customer Requirements are the directly observable features and functions of the product that will be encountered by its users. Requirements specified in this section are created with, and must not be changed without, specific agreement of the intended customer/user/sponsor.
-
-\subsection{Requirement Name}
+The customer requirements for this application have been procured directly from the client, Tim Dockins. The client has a very specific vision about the functionality of this application and has provided us with requirements that he thinks should be a part of the application.
+\subsection{The application must allow to perform grocery items}
 \subsubsection{Description}
-A detailed description of the feature/function that satisfies the requirement. For example: \textit{The GUI background will be slate blue. This specific color is required in order to ensure that the GUI matches other similar software products offered by the customer. Slate blue is specified as \#007FFF, using six-digit hexadecimal color specification.} It is acceptable and advisable to include drawings/graphics in the description if it aids understanding of the requirement.
+A search functionality must be implemented into the application which will allow the user to search for a specific grocery item and then allows the user to add that item to their shopping/grocery list. User must be allowed to type in the grocery item they are looking for and the search should find the matching item for user to add to list.
 \subsubsection{Source}
-The source of the requirement (e.g. customer, sponsor, specified team member (by name), federal regulation, local laws, CSE Senior Design project specifications, etc.)
+Customer
 \subsubsection{Constraints}
-A detailed description of realistic constraints relevant to this requirement. Economic, environmental, social, political, ethical, health \& safety, manufacturability, and sustainability should be discussed as appropriate.
-\subsubsection{Standards}
-A detailed description of any specific standards that apply to this requirement (e.g. \textit{NSTM standard xx.xxx.x. color specifications \cite{Rubin2012}}. Standards exist for practically everything (ATC standard fuses, IEEE 802.15.4 embedded wireless, TLS 1.3 encryption, etc.), so be sure that you research and document which ones will be followed in meeting this requirement.
+There are chances that the search functionality may not be able to find the item that user is looking for.
 \subsubsection{Priority}
-The priority of this requirement relative to other specified requirements. Use the following priorities:
-\begin{itemize}
-\item Critical (must have or product is a failure)
-\item High (very important to customer acceptance, desirability)
-\item Moderate (should have for proper product functionality);
-\item Low (nice to have, will include if time/resource permits)
-\item Future (not feasible in this version of the product, but should be considered for a future release).
-\end{itemize}
-
-\subsection{Requirement Name}
+High
+\\
+\subsection{The application must present user with the best grocery item}
 \subsubsection{Description}
-Detailed requirement description...
+Based on the item that the user searched for, the application should go and look for the best possible match for that item based on the price of the item and location of the stores that item is available in. The application may list multiple options for the same item depending on the item's price and store's location.
 \subsubsection{Source}
-Source
+Customer
 \subsubsection{Constraints}
-Detailed description of applicable constraints...
-\subsubsection{Standards}
-List of applicable standards
+The item searched for may not be available at any nearby store. Have to deal with the legality of web scraping from big stores.
 \subsubsection{Priority}
-Priority
+High\\
+
+\subsection{The application must allow user to filter their search}
+\subsubsection{Description}
+The user should be able to put conditions on their search to filter the results. The user must be able to filter their search using constraints like price, brands, stores and distance from their current location.
+\subsubsection{Source}
+Customer
+\subsubsection{Constraints}
+There might be just one option available, not allowing the user to filter their search.
+\subsubsection{Priority}
+Moderate\\
+
+\subsection{The application must allow users to create grocery lists}
+\subsubsection{Description}
+Other than searching for a single grocery item, the application must allow user to create grocery lists for their items. The grocery list must store multiple items. The user should be able to items to their grocery list by searching for the item and selecting a match to be added to the grocery list.
+\subsubsection{Source}
+Customer
+\subsubsection{Constraints}
+No applicable constraints.
+\subsubsection{Priority}
+High\\
+\subsection{The application must allow users to search their grocery list}
+\subsubsection{Description}
+The application must allow the user the search all items present in their grocery list all at once. The user should not have to search for each item individually in their grocery list. Grocery list functionality must have options for user to select how far they are willing to travel to get their groceries and how many stores they are willing to visit.
+\subsubsection{Source}
+Customer
+\subsubsection{Constraints}
+There might be no items in the grocery list or just one item in which the grocery list search should act like item search.
+\subsubsection{Priority}
+High\\
+
+\subsection{The application must pull relevant information from more than one store.}
+\subsubsection{Description}
+When the user does a search on their entire grocery list, the application must pull up results for the items from more then one store. The user can select if he wants to go to more than one store or no. Depending on user decision, the application should come up with relevant results and should follow the constraints which are put there by the user. 
+\subsubsection{Source}
+Customer
+\subsubsection{Constraints}
+There may be a case where the user constraints might not be satisfied because all items may not be available in one store.
+\subsubsection{Priority}
+Moderate\\
+
+\subsection{The application must provide the most optimal route to the user}
+\subsubsection{Description}
+If the user opts to visit to multiple stores to get their groceries then the application should provide the user with an optimal route and the order in which the user should visit those stores. The application must consider multiple factors in deciding the route and redirect user to a maps application. 
+\subsubsection{Source}
+Customer
+\subsubsection{Constraints}
+The user must have Google Maps installed on their phone in order for this functionality to work.
+\subsubsection{Priority}
+Moderate\\
+
+\subsection{The application must allow users to view and share recipes}
+\subsubsection{Description}
+The user should be able to look up recipes in the app. They must also be allowed to create their own recipes and save them. The recipes will store both the ingredients for that recipe and the procedure to follow. Users must be able to view and share recipes with other people using the application.
+\subsubsection{Source}
+Customer
+\subsubsection{Constraints}
+There must be a database available with recipes of common dishes pre-stored in it.
+\subsubsection{Priority}
+Low\\
+
+\subsection{The application must allow users to add all ingredients from a recipe to their grocery list}
+\subsubsection{Description}
+Once a user has added a recipe to their account, the application must allow the user to add all the ingredients of that recipe to their grocery list. The application should do that bu parsing every item in their recipe's ingredients list and should ignore the procedure. 
+\subsubsection{Source}
+Customer
+\subsubsection{Constraints}
+The user could use short forms for the items in their recipe which may not work while searching for that item.
+\subsubsection{Priority}
+Low\\
+
+\subsection{The application must allow user to keep a list of favorite grocery items}
+\subsubsection{Description}
+When a user searches for a grocery item, the application must give them an option to make that item a favorite. Then the application must keep track of all the items that a user has chosen as favorite by putting them in a list and storing that list into the database.  
+\subsubsection{Source}
+Customer
+\subsubsection{Constraints}
+The user must also be allowed to remove an item from favorites list.
+\subsubsection{Priority}
+Low
