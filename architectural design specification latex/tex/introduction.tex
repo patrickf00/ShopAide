@@ -3,15 +3,31 @@ Groco is a grocery shopping web application that is accessible on PC, smartphone
 
 The purpose of this product is to help users with grocery shopping. The key requirements are:
 \begin{itemize}
-    \item searching for the item's availability in nearby stores
-    \item compare item prices and stores distances to find the optimal grocery trip
-    \item providing the convenience in planning meals
-    \item providing optimal sequence of stores 
+\item \textbf{The application must allow a user to search grocery items}: A search functionality must be implemented into the application which will allow the user to search for a specific grocery item and then allows the user to add that item to their shopping/grocery list. The user must be allowed to type in the grocery item they are looking for and the search should find the matching item for the user to add to the list.
+
+\item \textbf{The application must present the user with the best grocery item}: Based on the item that the user searched for, the application should go and look for the best possible match for that item based on the price of the item and the location of the stores that item is available in. The application may list multiple options for the same item depending on the item's price and store's location.
+
+\item \textbf{The application must allow users to choose references that define optimal items}: The user should be able to choose the brand, price, distance, and maximum stores preferences for certain grocery items.
+
+\item \textbf{The application must allow users to create grocery lists}: The application must allow users to create shopping lists. The shopping list must store multiple items. The user should be able to add items to their shopping list by searching for the item
+
+\iem \textbf{The application must search for all items on the shopping list}: The application must search for all items in the shopping list and return the optimal items, their stores, and their prices based on user-specified preferences
+
+\item \textbf{The application search for optimal items from more than one store}: When the user searches their entire grocery list, the application must search for the optimal results from more than one store.
+
+\item \textbf{The application must provide the most optimal route to the user}: If the user opts to visit multiple stores to get their groceries then the application should provide the user with an optimal route and the order in which the user should visit those stores. The application must consider multiple factors in deciding the route.
+
+\item \textbf{The application must allow users to view and share recipes}: Users should be able to look up recipes in the application. Users must also be allowed to create their recipes and save them. The recipes will store both the ingredients for that recipe and the procedure to follow. Users must be able to view and share recipes with other users.
+
+\item \textbf{The application must allow users to add all ingredients from a recipe to their shopping list}: The application must allow the user to add all the ingredients of a recipe to their shopping list.
+
+\item \textbf{The application must allow users to keep a list of favorite grocery items}: The application must allow users to add and remove grocery items to a favorites list. This will allow users to quickly add certain grocery items to their shopping list.
+
 \end{itemize} 
 
-The key requirement of this product is to optimize the grocery items based on users' preferences. The user's preferences include brand, number of stores, and max traveling distance. The system will choose the optimitmal item by prices and distance.  
+The key requirement of this product is to optimize the grocery items based on users' preferences. The user's preferences include brand, number of stores, and max traveling distance. The system will choose the optimal item by prices and distance.  
 
-The scope of the product covers grocery stores that have their products and store information online and allow third party access to request or collect data through their public API or web-scraping within the United States. The product prototype should be completed within the budget of 800 dollars and by April 20, 2022.
+The scope of the product covers grocery stores that have their products and store information online and allow third party access to request or collect data through their public API or web-scraping within the United States. The product prototype should be completed within the budget of 800 dollars and by April 21, 2022.
 
 The main assumptions in this project are that users have internet access, the items' prices and store information collected online are accurate. Groco is not responsible for the price changes or stock-out at the stores. It is the user's responsibility to make sure that a price and discount offer is present at the stores since they are subject to change without notice.
 
