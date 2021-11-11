@@ -1,22 +1,29 @@
-In this section, the layer is described in some detail in terms of its specific subsystems. Describe each of the layers and its subsystems in a separate chapter/major subsection of this document. The content of each subsystem description should be similar. Include in this section any special considerations and/or trade-offs considered for the approach you have chosen.
-
-\subsection{Subsystem 1}
-This section should be a general description of a particular subsystem for the given layer. For most subsystems, an extract of the architectural block diagram with data flows is useful. This should consist of the subsystem being described and those subsystems with which it communicates.
+% In this section, the layer is described in some detail in terms of its specific subsystems. Describe each of the layers and its subsystems in a separate chapter/major subsection of this document. The content of each subsystem description should be similar. Include in this section any special considerations and/or trade-offs considered for the approach you have chosen.
+This will be the actual server or the back end for the application which will handle most of the heavy computations required for the application. The back end will handle requests coming in from the front end, interact with the database and data control layers to provide the front end with the appropriate response. The back end contains the following subsystems:
 
 \begin{figure}[h!]
 	\centering
- 	\includegraphics[width=0.60\textwidth]{images/subsystem}
- \caption{Example subsystem description diagram}
+ 	\includegraphics[width=0.60\textwidth]{images/Server.png}
+ \caption{Back End Subsystems}
 \end{figure}
 
+\subsection{Shopping Manager Subsystem}
+The shopping manager subsystem will deal with all the shopping related computation. It will get requests directly from the shopping subsystem of the front end.Then it will get the required shopping data from the Data Controller layer use the Data parser subsystem to parse the data into standard format and then send it as a response to the front-end.
+
+% \begin{figure}[h!]
+% 	\centering
+%  	\includegraphics[width=0.60\textwidth]{images/Server.png}
+%  \caption{Example subsystem description diagram}
+% \end{figure}
+
 \subsubsection{Assumptions}
-Any assumptions made in the definition of the subsystem should be listed and described. Pay particular attention to assumptions concerning interfaces and interactions with other layers.
+The requests from the front end are in standard format and the data is found by the data controller layer.
 
 \subsubsection{Responsibilities}
-Each of the responsibilities/features/functions/services of the subsystem as identified in the architectural summary must be expanded to more detailed responsibilities. These responsibilities form the basis for the identification of the finer-grained responsibilities of the layer's internal subsystems. Clearly describe what each subsystem does.
+% Each of the responsibilities/features/functions/services of the subsystem as identified in the architectural summary must be expanded to more detailed responsibilities. These responsibilities form the basis for the identification of the finer-grained responsibilities of the layer's internal subsystems. Clearly describe what each subsystem does.
+The shopping manager subsystem is responsible for getting prices for grocery items, entire shopping list, and calculate the optimal route for shopping based on user preference. It will follow an algorithm to generate the list of items and where to buy them for the user and send this data back to the front end.
 
 \subsubsection{Subsystem Interfaces}
-Each of the inputs and outputs for the subsystem are defined here. Create a table with an entry for each labelled interface that connects to this subsystem. For each entry, describe any incoming and outgoing data elements will pass through this interface.
 
 \begin {table}[H]
 \caption {Subsystem interfaces} 
@@ -24,15 +31,79 @@ Each of the inputs and outputs for the subsystem are defined here. Create a tabl
     \begin{tabular}{ | p{1cm} | p{6cm} | p{3cm} | p{3cm} |}
     \hline
     ID & Description & Inputs & Outputs \\ \hline
-    \#xx & Description of the interface/bus & \pbox{3cm}{input 1 \\ input 2} & \pbox{3cm}{output 1}  \\ \hline
-    \#xx & Description of the interface/bus & \pbox{3cm}{N/A} & \pbox{3cm}{output 1}  \\ \hline
+    \#1 & Request for a single item & \pbox{3cm}{Standard name \\ for that item} & \pbox{3cm}{List of places and prices}  \\ \hline
+    \#2 & Optimal route & \pbox{3cm}{Grocery List} & \pbox{3cm}{Optimal Route}  \\ \hline
+    \#3 & data from controller & \pbox{3cm}{Take data from controller} & \pbox{3cm}{Send it to parser}  \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
 
-\subsection{Subsystem 2}
-Repeat for each subsystem
+\subsection{User Management Subsystem}
+The user management subsystem will handle all requests from the front end related to the user of the application and give back appropriate response. It will keep track of the currently logged in user.
+\subsubsection{Assumptions}
+No assumptions
 
-\subsection{Subsystem 3}
-Repeat for each subsystem
+\subsubsection{Responsibilities}
+% Each of the responsibilities/features/functions/services of the subsystem as identified in the architectural summary must be expanded to more detailed responsibilities. These responsibilities form the basis for the identification of the finer-grained responsibilities of the layer's internal subsystems. Clearly describe what each subsystem does.
+The user management subsystem will be responsible to handle all user related tasks such as updating user profile, meal plans and keeping track of their preferences. This will also keep track of how long should the user be logged in and when to automatically log out the user.
+
+\subsubsection{Subsystem Interfaces}
+
+\begin {table}[H]
+\caption {Subsystem interfaces} 
+\begin{center}
+    \begin{tabular}{ | p{1cm} | p{5cm} | p{5cm} | p{5cm} |}
+    \hline
+    ID & Description & Inputs & Outputs \\ \hline
+    \#1 & Login & \pbox{5cm}{Response from Query Manager} & \pbox{5cm}{Keep track of the logged in user}  \\ \hline
+    \#2 & Update user profile & \pbox{5cm}{New user data} & \pbox{5cm}{Success or failure}  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+\subsection{Query Management Subsystem}
+The query management subsystem will handle all requests from the front end that needs a result from a query on the database and give back the appropriate response. Also give the current logged in users info to user management subsystem to keep track of the user. 
+\subsubsection{Assumptions}
+Email correctness and Password strength is checked at the front end before passing it to the Query Management System.
+
+\subsubsection{Responsibilities}
+% Each of the responsibilities/features/functions/services of the subsystem as identified in the architectural summary must be expanded to more detailed responsibilities. These responsibilities form the basis for the identification of the finer-grained responsibilities of the layer's internal subsystems. Clearly describe what each subsystem does.
+The query management subsystem will be responsible to handle all user related tasks such as account creation, logging in, and logging out. For user registration it would take username or email, password and other user details and store it into the database. For login it would take the username or email, \& password and check it again the username stored in the database and determine login success and relay the message back to the front end and also get the user data and pass it to user management to keep track of the logged in user.
+
+\subsubsection{Subsystem Interfaces}
+
+\begin {table}[H]
+\caption {Subsystem interfaces} 
+\begin{center}
+    \begin{tabular}{ | p{1cm} | p{5cm} | p{5cm} | p{5cm} |}
+    \hline
+    ID & Description & Inputs & Outputs \\ \hline
+    \#1 & Register & \pbox{5cm}{Email and password} & \pbox{5cm}{Response from database}  \\ \hline
+    \#2 & Login & \pbox{5cm}{Email and password} & \pbox{5cm}{Success or Failure}  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Database Controller Subsystem}
+The database controller will handle all the communication of the application to the database. It will give responses to the query management system with the required data extracted from the database.
+\subsubsection{Assumptions}
+The query management system will protect the database controller from attacks like SQL Injection.
+
+\subsubsection{Responsibilities}
+% Each of the responsibilities/features/functions/services of the subsystem as identified in the architectural summary must be expanded to more detailed responsibilities. These responsibilities form the basis for the identification of the finer-grained responsibilities of the layer's internal subsystems. Clearly describe what each subsystem does.
+The database controller subsystem will be responsible to handle all communications to and from the database. It will create the initial connection with the database on the application startup. Every query to the database will go through this controller. It will get login, registration and update queries from the query management system and provide response from database. It will also take requests from the shopping list and recipes subsystems to get the user specific shopping list and recipes from the database.
+
+\subsubsection{Subsystem Interfaces}
+
+\begin {table}[H]
+\caption {Subsystem interfaces} 
+\begin{center}
+    \begin{tabular}{ | p{1cm} | p{5cm} | p{5cm} | p{5cm} |}
+    \hline
+    ID & Description & Inputs & Outputs \\ \hline
+    \#1 & Requests from Query manager & \pbox{5cm}{Email and password} & \pbox{5cm}{Response from database}  \\ \hline
+    \#2 & Requests from Shopping List & \pbox{5cm}{Username or Email} & \pbox{5cm}{User's Shopping List from Database}  \\ \hline
+    \#3 & Requests from Recipes & \pbox{5cm}{Username or Email} & \pbox{5cm}{User's stored recipes}  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
 
