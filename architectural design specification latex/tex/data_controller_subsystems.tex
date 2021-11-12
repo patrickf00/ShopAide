@@ -11,10 +11,12 @@ The data controller layer is responsible for getting data about grocery items fr
 
 \subsubsection{Assumptions}
 %Any assumptions made in the definition of the subsystem should be listed and described. Pay particular attention to assumptions concerning interfaces and interactions with other layers.
-All of the stores will return grocery descriptions in JASON format. 
+All of the stores will return grocery descriptions in JSON format. 
+
 \subsubsection{Responsibilities}
 %Each of the responsibilities/features/functions/services of the subsystem as identified in the architectural summary must be expanded to more detailed responsibilities. These responsibilities form the basis for the identification of the finer-grained responsibilities of the layer's internal subsystems. Clearly describe what each subsystem does.
 The API manager will take a grocery list and give the items in the list to the stores APIs. If the store API will find the given items then it will return the description of the items else it will return an error message. After the API manager gets the data it is responsible for transferring the data to the store manager subsystem. 
+
 \subsubsection{Subsystem Interfaces}
 %Each of the inputs and outputs for the subsystem are defined here. Create a table with an entry for each labelled interface that connects to this subsystem. For each entry, describe any incoming and outgoing data elements will pass through this interface.
 

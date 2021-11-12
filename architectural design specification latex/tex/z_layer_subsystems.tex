@@ -3,7 +3,7 @@ Groco is to use a relational database to keep backend information uniform and we
 
 
 \subsection{UserTable Subsystem}\label{section:db.1}
-Whenever a user is added to the system, their email, username, and password will be added to this table.  A global ID will also be used to improve data efficiency and ensure data integrity.  Their password is also stored as a hash instead of plain form for obvious reasons, but this field may end up being removed if it is proven obsolete by other authentication systems such as AWS authentication.  A few other noteworthy fields in this table are are "shopping\_list\_id" and "favorites\_list\_id" which point to the current shopping list and favorite items list, which will be discussed in subsection \ref{section:db.3}.
+The UserTable Subsystem will be used for storing identifiable information about each user and holding information to help the user.
 
 \begin{figure}[h!]\label{fig:db.1}
 	\centering
@@ -12,10 +12,10 @@ Whenever a user is added to the system, their email, username, and password will
 \end{figure}
 
 \subsubsection{Assumptions}
-The users email and password shall be needed and stored in the database.
+The users email and username and password shall be needed and stored in the database.
 
 \subsubsection{Responsibilities}
-Storing identifiable information about each user and holding information to help the user.
+Whenever a user is added to the system, their email, username, and password will be added to this table.  A global ID will also be used to improve data efficiency and ensure data integrity.  Their password is also stored as a hash instead of plain form for better security, but this field may end up being removed if it is proven obsolete by other authentication systems such as AWS authentication.  A few other noteworthy fields in this table are are "shopping\_list\_id" and "favorites\_list\_id" which point to the current shopping list and favorite items list, which will be discussed in subsection \ref{section:db.3}.
 
 %Each of the responsibilities/features/functions/services of the subsystem as identified in the architectural summary must be expanded to more detailed responsibilities. These responsibilities form the basis for the identification of the finer-grained responsibilities of the layer's internal subsystems. Clearly describe what each subsystem does.
 
@@ -27,21 +27,17 @@ Storing identifiable information about each user and holding information to help
     \begin{tabular}{ | p{1cm} | p{6cm} | p{3cm} | p{3cm} |}
     \hline
     ID & Description & Inputs & Outputs \\ \hline
-    \#01 & A new user entry is created & Username, password hash, and email & success/failure  \\ \hline
-    \#02 & A user entry is updated & A field of "UserTable" is updated for a particular given user ID. & success/failure  \\ \hline
-    \#03 & A user entry is deleted & A user ID & success/failure  \\ \hline
-    \#04 & A user is queried & username/email, hashed password & user record  \\ \hline
+    \#1 & A new user entry is created & Username, password hash, and email & success/failure  \\ \hline
+    \#2 & A user entry is updated & A field of "UserTable" is updated for a particular given user ID. & success/failure  \\ \hline
+    \#3 & A user entry is deleted & A user ID & success/failure  \\ \hline
+    \#4 & A user is queried & username/email, hashed password & user record  \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
 
 
 \subsection{Meal Plan Subsystem}\label{section:db.2}
-For meal plans, several layers of one to many relationships are needed.  Consider the following enumeration to get an idea of those:
-\begin{enumerate}
-    \item To allow the user to have multiple meal plans, "MealPlanTable" maps each user ID to zero or more meal plans, each of which have their own name.
-    \item To allow each meal plan to have multiple recipes, "MealPlanRecipeTable" maps each meal plan to zero or more recipes.
-\end{enumerate}
+The Meal Plan Subsystem will be incharge of complying with customer requirements regarding having meal plans and related features.
 
 %\begin{figure}[h!]\label{fig:db.1}
 %	\centering
@@ -50,13 +46,17 @@ For meal plans, several layers of one to many relationships are needed.  Conside
 %\end{figure}
 
 \subsubsection{Assumptions}
-N/A
+There are no assumptions for this subsystem.
 %The users email and password shall be needed and stored in the database.
 
 \subsubsection{Responsibilities}
 %Storing identifiable information about each user and holding information to help the user.
-Complying with customer requirements regarding having meal plans and related features.
 %Each of the responsibilities/features/functions/services of the subsystem as identified in the architectural summary must be expanded to more detailed responsibilities. These responsibilities form the basis for the identification of the finer-grained responsibilities of the layer's internal subsystems. Clearly describe what each subsystem does.
+For meal plans, several layers of one to many relationships are needed.  Consider the following enumeration to get an idea of those:
+\begin{enumerate}
+    \item To allow the user to have multiple meal plans, "MealPlanTable" maps each user ID to zero or more meal plans, each of which have their own name.
+    \item To allow each meal plan to have multiple recipes, "MealPlanRecipeTable" maps each meal plan to zero or more recipes.
+\end{enumerate}
 
 \subsubsection{Subsystem Interfaces}
 \begin {table}[H]
@@ -78,13 +78,7 @@ Complying with customer requirements regarding having meal plans and related fea
 
 
 \subsection{Ingredient Subsystem}\label{section:db.3}
-The system needs to be able to know the names of ingredients and the amounts needed for shopping lists and recipes.  These two needs are met by "IngredientTable" and "IngredientInstanceTable" respectively.  The former mearly holds the name of each ingredient, which can be used to comply with the grocery search requirements mentioned in the SRS.  The latter is a bit more complicated, the various fields are broken down in the following list:
-\begin{itemize}
-    \item id: Global id for each enty to ensure uniqueness, this may end up being removed if shown unneeded.
-    \item collection\_id: Every user shopping list, user favorites list, and recipe will have an associated collection id, which will corrospond to everything on that list.  Each of those items for that "collection" will fall in this table.  By constructing the database in this way, several requirements are satisfied with a single table.
-    \item quantity: Gives the amount required of the ingredient in the units specified in the next field.
-    \item measurement\_type: Has a key corrosponding to the particular measurement type in use.
-\end{itemize}
+The Ingredients Subystem will be used for storing ingredients used elsewhere in the database.
 
 %\begin{figure}[h!]\label{fig:db.1}
 %	\centering
@@ -97,7 +91,13 @@ Whenever a shopping, favorites list, or recipe is cleared, the corrosponding col
 %The users email and password shall be needed and stored in the database.
 
 \subsubsection{Responsibilities}
-Storing ingredients used elsewhere in the database.
+The system needs to be able to know the names of ingredients and the amounts needed for shopping lists and recipes.  These two needs are met by "IngredientTable" and "IngredientInstanceTable" respectively.  The former mearly holds the name of each ingredient, which can be used to comply with the grocery search requirements mentioned in the SRS.  The latter is a bit more complicated, the various fields are broken down in the following list:
+\begin{itemize}
+    \item id: Global id for each enty to ensure uniqueness, this may end up being removed if shown unneeded.
+    \item collection\_id: Every user shopping list, user favorites list, and recipe will have an associated collection id, which will corrospond to everything on that list.  Each of those items for that "collection" will fall in this table.  By constructing the database in this way, several requirements are satisfied with a single table.
+    \item quantity: Gives the amount required of the ingredient in the units specified in the next field.
+    \item measurement\_type: Has a key corrosponding to the particular measurement type in use.
+\end{itemize}
 
 %Each of the responsibilities/features/functions/services of the subsystem as identified in the architectural summary must be expanded to more detailed responsibilities. These responsibilities form the basis for the identification of the finer-grained responsibilities of the layer's internal subsystems. Clearly describe what each subsystem does.
 
@@ -116,9 +116,8 @@ Storing ingredients used elsewhere in the database.
 \end{center}
 \end{table}
 
-
 \subsection{RecipeTable Subsystem}\label{section:db.4}
-A table containing each recipe within the application.  The first few fields are fairly straightforward, giving a unique ID to each recipe, the ID of the creature of the recipe, the name of the recipe, and instructions on how to make the recipe.  The last field, as discussed in subsection \ref{section:db.3}, gives the ID which can be used to query the particular ingredients for the recipe.  This last field is to be used in constructing shopping lists.
+The RecipeTable Subsystem will responsible maintaining lists of all recipes, along with associated ingredient collection IDs.
 
 %\begin{figure}[h!]\label{fig:db.1}
 %	\centering
@@ -130,7 +129,7 @@ A table containing each recipe within the application.  The first few fields are
 Any recipe can be written as a set of instructions and ingredients.
 
 \subsubsection{Responsibilities}
-Maintaining lists of all recipes, along with associated ingredient collection IDs.
+A table containing each recipe within the application.  The first few fields are fairly straightforward, giving a unique ID to each recipe, the ID of the creature of the recipe, the name of the recipe, and instructions on how to make the recipe.  The last field, as discussed in subsection \ref{section:db.3}, gives the ID which can be used to query the particular ingredients for the recipe.  This last field is to be used in constructing shopping lists.
 
 %Each of the responsibilities/features/functions/services of the subsystem as identified in the architectural summary must be expanded to more detailed responsibilities. These responsibilities form the basis for the identification of the finer-grained responsibilities of the layer's internal subsystems. Clearly describe what each subsystem does.
 
