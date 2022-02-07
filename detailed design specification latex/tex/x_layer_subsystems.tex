@@ -2,10 +2,10 @@
 The front-end, like the entire application, will be run on the browser and will therefore run on any operating system.
 
 \subsection{Layer Software Dependencies}
-The entire front-end will be done in HTML, CSS, and React.js.
+The entire application will depend on Bootstrap, and the React library.
 
-\subsection{Subsystem 1}
-Descibe at a high level the purpose and basic design of this subsystem. Is it a piece of hardware, a class, a web service, or something else? Note that each of the subsystem items below are meant to be specific to that subystem and not a repeat of anything discussed above for the overall layer.
+\subsection{Login Subsystem}
+The Login Subsystem will will provide an interface for user to login into the application. Users will be able to login with their email and password credentials or their Google accounts.
 
 \begin{figure}[h!]
 	\centering
@@ -13,17 +13,11 @@ Descibe at a high level the purpose and basic design of this subsystem. Is it a 
  \caption{Example subsystem description diagram}
 \end{figure}
 
-\subsubsection{Subsystem Hardware}
-A description of any involved hardware components for the subsystem.
-
-\subsubsection{Subsystem Operating System}
-A description of any operating systems required by the subsystem.
-
 \subsubsection{Subsystem Software Dependencies}
-A description of any software dependencies (libraries, frameworks, design software for mechanical parts or circuits, etc) required by the subsystem.
+The Login Subsystem will require a consistent connection to the applications database in order to login with their email and password credentials. For a user to login with their Google accounts, the application will depend on the GoogleLogin library.
 
 \subsubsection{Subsystem Programming Languages}
-A description of any programming languages used by the subsystem.
+The Login Subsystem will be developed using, React.js, HTML, and CSS.
 
 \subsubsection{Subsystem Data Structures}
 A description of any classes or other data structures that are worth discussing for the subsystem. For example, data being transmitted from a microcontroller to a PC via USB should be first be assembled into packets. What is the structure of the packets?
