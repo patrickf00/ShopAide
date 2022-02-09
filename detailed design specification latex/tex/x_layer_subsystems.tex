@@ -2,7 +2,7 @@
 The front-end, like the entire application, will be run on the browser and will therefore run on any operating system.
 
 \subsection{Layer Software Dependencies}
-The entire application will depend on Bootstrap, and the React library.
+The entire front-end will depend on Bootstrap, and the React library. The front-end will also depend on a consistent connection to the Query Manager on the Server layer.
 
 \subsection{Login Subsystem}
 The Login Subsystem will will provide an interface for user to login into the application. Users will be able to login with their email and password credentials or their Google accounts.
@@ -14,7 +14,7 @@ The Login Subsystem will will provide an interface for user to login into the ap
 \end{figure}
 
 \subsubsection{Subsystem Software Dependencies}
-The Login Subsystem will require a consistent connection to the applications database in order to login with their email and password credentials. For a user to login with their Google accounts, the application will depend on the GoogleLogin library.
+For a user to login with their Google accounts, the Login Subsystem will depend on the GoogleLogin library.
 
 \subsubsection{Subsystem Programming Languages}
 The Login Subsystem will be developed using, React.js, HTML, and CSS.
@@ -26,6 +26,7 @@ If the user decides to login with their Google account, they will select the Goo
 
 %------------> Register 
 \subsection{Register Subsystem}
+The Register Subsystem will provide an interface for users to register for an account.
 
 \begin{figure}[h!]
 	\centering
@@ -34,11 +35,13 @@ If the user decides to login with their Google account, they will select the Goo
 \end{figure}
 
 \subsubsection{Subsystem Software Dependencies}
+The Register Subsystem does not have any additional dependencies.
 
 \subsubsection{Subsystem Programming Languages}
-The Login Subsystem will be developed using, React.js, HTML, and CSS.
+The Register Subsystem will be developed using, React.js, HTML, and CSS.
 
 \subsubsection{Subsystem Data Processing}
+After entering their password and unique email and username, the user will press the Register button. Upon the Register button being pressed, the Register Subsystem will capture the user entered information and send it to the Query Manager. If the Query Manager sends a success signal, the Register Subsystem will redirect the user to the Home Page. If the Query Manager sends a failure signal, the Register Subsystem will display an error message and prompt the user to re-enter their information.
 
 %------------> Shopping List
 \subsection{Shopping List Subsystem}
@@ -50,11 +53,13 @@ The Login Subsystem will be developed using, React.js, HTML, and CSS.
 \end{figure}
 
 \subsubsection{Subsystem Software Dependencies}
+The Shopping List Subsystem has no additional dependencies.
 
 \subsubsection{Subsystem Programming Languages}
-The Login Subsystem will be developed using, React.js, HTML, and CSS.
+The Shopping List Subsystem will be developed using, React.js, HTML, and CSS.
 
 \subsubsection{Subsystem Data Processing}
+The Shopping List Subsystem will retrieve the current user's shopping list from the Query Manager and display all relavent information.
 
 %------------> Recipes
 \subsection{Recipes Subsystem}
@@ -66,11 +71,13 @@ The Login Subsystem will be developed using, React.js, HTML, and CSS.
 \end{figure}
 
 \subsubsection{Subsystem Software Dependencies}
+The Recipes Subsystem has no additional dependencies.
 
 \subsubsection{Subsystem Programming Languages}
-The Login Subsystem will be developed using, React.js, HTML, and CSS.
+The Recipes Subsystem will be developed using, React.js, HTML, and CSS.
 
 \subsubsection{Subsystem Data Processing}
+The Recipes Subsystem will display all recipes retrieved by the Query Manager.
 
 %------------> Meal Plan
 \subsection{Meal Plan Subsystem}
@@ -82,11 +89,13 @@ The Login Subsystem will be developed using, React.js, HTML, and CSS.
 \end{figure}
 
 \subsubsection{Subsystem Software Dependencies}
+The Meal Plan Subsystem has no additional dependencies.
 
 \subsubsection{Subsystem Programming Languages}
-The Login Subsystem will be developed using, React.js, HTML, and CSS.
+The Meal Plan Subsystem will be developed using, React.js, HTML, and CSS.
 
 \subsubsection{Subsystem Data Processing}
+The Meal Plan Subsystem will dislay of the current user's Meal Plans that are retrieved by the Query Manager.
 
 %------------> Shop
 \subsection{Shop Subsystem}
@@ -98,10 +107,12 @@ The Login Subsystem will be developed using, React.js, HTML, and CSS.
 \end{figure}
 
 \subsubsection{Subsystem Software Dependencies}
+The Shop Subsystem depends on a consistent connection to the Shop Manager on the Server layer.
 
 \subsubsection{Subsystem Programming Languages}
-The Login Subsystem will be developed using, React.js, HTML, and CSS.
+The Shop Subsystem will be developed using, React.js, HTML, and CSS.
 
 \subsubsection{Subsystem Data Processing}
+The Shop Subsystem will display all information that is calculated by the Shopping Manager.
 
 
