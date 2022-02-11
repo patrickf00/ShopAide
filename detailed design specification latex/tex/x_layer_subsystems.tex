@@ -1,39 +1,119 @@
-In this section, the layer is described in terms of the hardware and software design. Specific implementation details, such as hardware components, programming languages, software dependencies, operating systems, etc. should be discussed. Any unnecessary items can be ommitted (for example, a pure software module without any specific hardware should not include a hardware subsection). The organization, titles, and content of the sections below can be modified as necessary for the project.
-
-\subsection{Layer Hardware}
-A description of any involved hardware components for the layer. For example, if each subsystem is a software process running on an embedded computer, discuss the specifics of that device here. Do not list a hardware component that only exists at the subsystem level (include it in the following sections).
-
-\subsection{Layer Operating System}
-A description of any operating systems required by the layer.
-
 \subsection{Layer Software Dependencies}
-A description of any software dependencies (libraries, frameworks, etc) required by the layer.
+The entire front-end will depend on Bootstrap and the React library. The front-end will also depend on a consistent connection to the Query Manager on the Server layer.
 
-\subsection{Subsystem 1}
-Descibe at a high level the purpose and basic design of this subsystem. Is it a piece of hardware, a class, a web service, or something else? Note that each of the subsystem items below are meant to be specific to that subystem and not a repeat of anything discussed above for the overall layer.
+\subsection{Login Subsystem}
+The Login Subsystem will provide an interface for users to login into the application. Users will be able to log in with their email and password credentials or their Google accounts.
 
 \begin{figure}[h!]
 	\centering
- 	\includegraphics[width=0.60\textwidth]{images/subsystem}
- \caption{Example subsystem description diagram}
+ 	\includegraphics[width=0.60\textwidth]{images/login}
+ \caption{Login Subsystem diagram}
 \end{figure}
 
-\subsubsection{Subsystem Hardware}
-A description of any involved hardware components for the subsystem.
-
-\subsubsection{Subsystem Operating System}
-A description of any operating systems required by the subsystem.
-
 \subsubsection{Subsystem Software Dependencies}
-A description of any software dependencies (libraries, frameworks, design software for mechanical parts or circuits, etc) required by the subsystem.
+For a user to log in with their Google accounts, the Login Subsystem will depend on the GoogleLogin library.
 
 \subsubsection{Subsystem Programming Languages}
-A description of any programming languages used by the subsystem.
-
-\subsubsection{Subsystem Data Structures}
-A description of any classes or other data structures that are worth discussing for the subsystem. For example, data being transmitted from a microcontroller to a PC via USB should be first be assembled into packets. What is the structure of the packets?
+The Login Subsystem will be developed using, React.js, HTML, and CSS.
 
 \subsubsection{Subsystem Data Processing}
-A description of any algorithms or processing strategies that are worth discussing for the subsystem. If you are implementing a well-known algorithm, list it. If it is something unique to this project, discuss it in greater detail.
+If the user logs in using their email and password, they will enter their credentials in the respective places and click the login button. Upon the login button being pressed, the Login Subsystem will send the user's credentials to the Query Manager in the backend layer. If the Login Subsystem receives a success signal, the user will be redirected to the Home Page. If the Login Subsystem receives a failure signal, a failure message will be displayed and users will be prompted to re-enter their credentials.
+
+If the user decides to log in with their Google account, they will select the Google login button. The Login Subsystem will then call on the GoogleLogin API which users will log in with. If the login is successful, the Login Subsystem will redirect the user to the Home Page. If the login fails, the user will be given an error message and prompted to re-enter their credentials.
+
+%------------> Register 
+\subsection{Register Subsystem}
+The Register Subsystem will provide an interface for users to register for an account.
+
+\begin{figure}[h!]
+	\centering
+ 	\includegraphics[width=0.60\textwidth]{images/register}
+ \caption{Register Subsystem diagram}
+\end{figure}
+
+\subsubsection{Subsystem Software Dependencies}
+The Register Subsystem does not have any additional dependencies.
+
+\subsubsection{Subsystem Programming Languages}
+The Register Subsystem will be developed using, React.js, HTML, and CSS.
+
+\subsubsection{Subsystem Data Processing}
+After entering their password and unique email and username, the user will press the Register button. Upon the Register button being pressed, the Register Subsystem will capture the user-entered information and send it to the Query Manager. If the Query Manager sends a success signal, the Register Subsystem will redirect the user to the Home Page. If the Query Manager sends a failure signal, the Register Subsystem will display an error message and prompt the user to re-enter their information.
+
+%------------> Shopping List
+\subsection{Shopping List Subsystem}
+The Shopping List Subsystem will provide an interface for users to view all the items on their current shopping list. It will also allow users to add and remove items.
+
+\begin{figure}[h!]
+	\centering
+ 	\includegraphics[width=0.60\textwidth]{images/shoppingList}
+ \caption{Shopping List Subsystem diagram}
+\end{figure}
+
+\subsubsection{Subsystem Software Dependencies}
+The Shopping List Subsystem has no additional dependencies.
+
+\subsubsection{Subsystem Programming Languages}
+The Shopping List Subsystem will be developed using, React.js, HTML, and CSS.
+
+\subsubsection{Subsystem Data Processing}
+The Shopping List Subsystem will retrieve the current user's shopping list from the Query Manager and display all relevant information.
+
+%------------> Recipes
+\subsection{Recipes Subsystem}
+The Recipes Subsystem will provide an interface for users to view and shop for all recipes in the system's database. It will also allow users to create and edit their recipes.
+
+\begin{figure}[h!]
+	\centering
+ 	\includegraphics[width=0.60\textwidth]{images/recipes}
+ \caption{Recipes Subsystem diagram}
+\end{figure}
+
+\subsubsection{Subsystem Software Dependencies}
+The Recipes Subsystem has no additional dependencies.
+
+\subsubsection{Subsystem Programming Languages}
+The Recipes Subsystem will be developed using, React.js, HTML, and CSS.
+
+\subsubsection{Subsystem Data Processing}
+The Recipes Subsystem will display all recipes retrieved by the Query Manager.
+
+%------------> Meal Plan
+\subsection{Meal Plan Subsystem}
+The Meal Plan Subsystem will provide an interface for users to view and edit their Meal Plans.
+
+\begin{figure}[h!]
+	\centering
+ 	\includegraphics[width=0.60\textwidth]{images/shoppingList}
+ \caption{Meal Plan Subsystem diagram}
+\end{figure}
+
+\subsubsection{Subsystem Software Dependencies}
+The Meal Plan Subsystem has no additional dependencies.
+
+\subsubsection{Subsystem Programming Languages}
+The Meal Plan Subsystem will be developed using, React.js, HTML, and CSS.
+
+\subsubsection{Subsystem Data Processing}
+The Meal Plan Subsystem will display the current user's Meal Plans that are retrieved by the Query Manager.
+
+%------------> Shop
+\subsection{Shop Subsystem}
+The Shop Subsystem will provide an interface for users to view the results of the shopping trip being planned.
+
+\begin{figure}[h!]
+	\centering
+ 	\includegraphics[width=0.60\textwidth]{images/shoppingList}
+ \caption{Shop Subsystem diagram}
+\end{figure}
+
+\subsubsection{Subsystem Software Dependencies}
+The Shop Subsystem depends on a consistent connection to the Shop Manager on the Server layer.
+
+\subsubsection{Subsystem Programming Languages}
+The Shop Subsystem will be developed using, React.js, HTML, and CSS.
+
+\subsubsection{Subsystem Data Processing}
+The Shop Subsystem will display all information that is calculated by the Shopping Manager.
 
 
