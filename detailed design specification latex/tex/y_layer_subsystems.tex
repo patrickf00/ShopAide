@@ -1,6 +1,6 @@
 
 \subsection{Layer Operating System}
-Back-end will served on a Linux operating system on AWS Cloud platform.
+Back-end will work on Google Cloud Platform (GCP).
 \subsection{Layer Software Dependencies}
 The back-end will be hosted using JavaScript's NodeJS Framework.
 \begin{figure}[h!]
@@ -10,10 +10,9 @@ The back-end will be hosted using JavaScript's NodeJS Framework.
 \end{figure}
 
 \subsection{Shopping manager Subsystem}
-The shopping manager subsystem will deal with all the shopping related computation. It will get requests
-directly from the shopping subsystem of the front end. Then it will get the required shopping data
-from the Data Controller layer, use the Data parser subsystem to parse the data into standard format,
-and then send it as a response to the front-end.
+The Shopping Manager Subsystem will deal with all the shopping related computation. It will get requests
+directly from the shopping subsystem of the front-end. Then it will get the required shopping data
+from the Data Controller layer.
 
 \begin{figure}[h!]
 	\centering
@@ -23,13 +22,13 @@ and then send it as a response to the front-end.
 
 
 \subsubsection{Subsystem Software Dependencies}
-The subsystem will use the axios library to communicate with the Data Controller Layer.It will also use google maps library to display and calculate the optimum route to the user.
+The subsystem will use the axios library to communicate with the Data Controller Layer. It will also use Google Maps library to display and calculate the optimum route to the user.
 
 \subsubsection{Subsystem Programming Languages}
 JavaScript (NodeJS)
 
 \subsubsection{Subsystem Data Structures}
-It will provide front end with the Prices and Availability of grocery items. Also the data required to display the optimum route on the front end.
+It will provide the front-end with the Prices and Availability of grocery items. Also the data required to display the optimum route on the front end.
 
 \subsubsection{Subsystem Data Processing}
 A description of any algorithms or processing strategies that are worth discussing for the subsystem. If you are implementing a well-known algorithm, list it. If it is something unique to this project, discuss it in greater detail. 
@@ -37,7 +36,7 @@ A description of any algorithms or processing strategies that are worth discussi
 
 
 \subsection{User Management Subsystem}
-The user management subsystem will handle all requests from the front end related to the user of the
+The User Management Subsystem will handle all requests from the front-end related to the user of the
 application and give back appropriate response. It will keep track of the currently logged in user.
 
 \begin{figure}[h!]
@@ -48,19 +47,19 @@ application and give back appropriate response. It will keep track of the curren
 
 
 \subsubsection{Subsystem Software Dependencies}
-This subsystem will Handle GoogleLogin authentication to make sure user is logged in and connect his google ID to the ID stored in the database. This subsystem will also use Axios library.
+This subsystem will Handle GoogleLogin authentication to make sure a user is logged in and connects their Google ID to the ID stored in the database. This subsystem will also use Axios library.
 
 \subsubsection{Subsystem Programming Languages}
-JavaScript (NodeJS) and some SQL
+JavaScript (NodeJS) and SQL.
 
 \subsubsection{Subsystem Data Structures}
-This subsystem will create a data structure for the users profile using the google ID and send it to the front end.
+This subsystem will create a data structure for the user's profile using the Google ID and send it to the front-end.
 
 \subsubsection{Subsystem Data Processing}
-It will take in google ID for the user, search for that stored google ID in the database and pull all the data required data associated to that user.
+It will take in the Google ID for the user, search for that stored Google ID in the database and pull all the data associated to that user.
 
 \subsection{Query Management Subsystem}
-The query management subsystem will handle all requests from the front end that needs a result from
+The Query Management Subsystem will handle all requests from the front-end that needs a result from
 a query on the database and give back the appropriate response.
 
 \begin{figure}[h!]
@@ -71,16 +70,16 @@ a query on the database and give back the appropriate response.
 
 
 \subsubsection{Subsystem Software Dependencies}
-It will use the npm pg library to communicate with the postgreSQL Database stored in AWS RDS.
+It will use the npm pg library to communicate with the PostgreSQL Database stored in Google Cloud Platform.
 
 \subsubsection{Subsystem Programming Languages}
-JavaScript (NodeJS) and queries written in SQL
+JavaScript (NodeJS) and SQL.
 
 \subsubsection{Subsystem Data Structures}
 This subsystem will be responsible for creating and managing all the queries to the database.
 
 \subsubsection{Subsystem Data Processing}
-Depending on the request this layer will create a database query and send it to the database controller layer.
+Depending on the request, this layer will create a database query and send it to the Database Controller Layer.
 
 \subsection{Database Controller Subsystem}
 The database controller will handle all the communication of the application to the database. It will
@@ -94,13 +93,13 @@ give responses to the query management system with the required data extracted f
 
 
 \subsubsection{Subsystem Software Dependencies}
-It will use the npm pg library to communicate with the postgreSQL Database stored in AWS RDS using axios.
+It will use the npm pg library to communicate with the PostgreSQL Database stored in Google Cloud Platform using Axios.
 
 \subsubsection{Subsystem Programming Languages}
-JavaScript (NodeJS) and queries written in SQL
+JavaScript (NodeJS) and SQL.
 
 \subsubsection{Subsystem Data Structures}
-This subsystem will take queries from the query management layer and send those queries to the database.
+This subsystem will take queries from the Query Management Layer and send those queries to the database.
 
 \subsubsection{Subsystem Data Processing}
-This subsystem will send the queries to the database and get the result and send it back to the query management layer.
+This subsystem will send the queries to the database and get the result and send it back to the Query Management Layer.

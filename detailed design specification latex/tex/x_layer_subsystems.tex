@@ -2,7 +2,8 @@
 The entire front-end will depend on Bootstrap and the React library. The front-end will also depend on a consistent connection to the Query Manager on the Server layer.
 
 \subsection{Login Subsystem}
-The Login Subsystem will provide an interface for users to login into the application. Users will be able to log in with their email and password credentials or their Google accounts.
+The Login Subsystem will provide an interface for users to login into the application. Users will be able to log in with their Google accounts.
+
 
 \begin{figure}[h!]
 	\centering
@@ -17,28 +18,7 @@ For a user to log in with their Google accounts, the Login Subsystem will depend
 The Login Subsystem will be developed using, React.js, HTML, and CSS.
 
 \subsubsection{Subsystem Data Processing}
-If the user logs in using their email and password, they will enter their credentials in the respective places and click the login button. Upon the login button being pressed, the Login Subsystem will send the user's credentials to the Query Manager in the backend layer. If the Login Subsystem receives a success signal, the user will be redirected to the Home Page. If the Login Subsystem receives a failure signal, a failure message will be displayed and users will be prompted to re-enter their credentials.
-
-If the user decides to log in with their Google account, they will select the Google login button. The Login Subsystem will then call on the GoogleLogin API which users will log in with. If the login is successful, the Login Subsystem will redirect the user to the Home Page. If the login fails, the user will be given an error message and prompted to re-enter their credentials.
-
-%------------> Register 
-\subsection{Register Subsystem}
-The Register Subsystem will provide an interface for users to register for an account.
-
-\begin{figure}[h!]
-	\centering
- 	\includegraphics[width=0.60\textwidth]{images/register}
- \caption{Register Subsystem diagram}
-\end{figure}
-
-\subsubsection{Subsystem Software Dependencies}
-The Register Subsystem does not have any additional dependencies.
-
-\subsubsection{Subsystem Programming Languages}
-The Register Subsystem will be developed using, React.js, HTML, and CSS.
-
-\subsubsection{Subsystem Data Processing}
-After entering their password and unique email and username, the user will press the Register button. Upon the Register button being pressed, the Register Subsystem will capture the user-entered information and send it to the Query Manager. If the Query Manager sends a success signal, the Register Subsystem will redirect the user to the Home Page. If the Query Manager sends a failure signal, the Register Subsystem will display an error message and prompt the user to re-enter their information.
+When the user logs in with their Google account, they will select the Google login button. The Login Subsystem will then call on the GoogleLogin API which users will log in with. If the login is successful, the Login Subsystem will redirect the user to the Home Page. If the login fails, the user will be given an error message and prompted to re-enter their credentials.
 
 %------------> Shopping List
 \subsection{Shopping List Subsystem}
