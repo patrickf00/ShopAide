@@ -31,10 +31,20 @@ JavaScript (NodeJS)
 It will provide the front-end with the Prices and Availability of grocery items. Also the data required to display the optimum route on the front end.
 
 \subsubsection{Subsystem Data Processing}
-A description of any algorithms or processing strategies that are worth discussing for the subsystem. If you are implementing a well-known algorithm, list it. If it is something unique to this project, discuss it in greater detail. 
-(Note: Ask Andrew about this)
-
-
+The shopping optimization algorithm will seek to find the best route given the users criteria.
+To start with, define $\textbf{S} = \{S_1,S_2,...,S_n\}$ to be an ordered set of $n$ stores, to be visited, from $S_1$ to $S_n$ in order and define $S_0$ to be the starting location of the user.  Next, define $w_0$ and $w_1$ to be non-negative weights
+defined by the user to give the importance of distance and item price, respectively.  Define $d(S_{i-1},S_i)$ to be the distance from $S_{i-1}$ to $S_i$ for all $i=1,2,...,n$.
+Define $\lamda(S_i,h)$ to be the cost of item $h$ at store $S_i$.  Finally, define $\textbf{H}(S_i)$ to be the set of items the user is planning to buy at store $S_i$.  Thus, we are able to define our cost function as:
+\begin{equation}
+	COST(\textbf{S},\textbf{H}) := w_0\sum_{i=1}^n d(S_{i-1},S_i) + w_1\sum_{i=1}^n \sum_{h\in\textbf{H}(S_i)} \lambda(S_i,h)
+\end{equation}
+Hence, if $\textbf{A}$ represents the shopping list of the user, then it should follow that
+\begin{equation}
+	\textbf{A} =: \bigcup_{s\in\textbf{S}}\textbf{H}(s)
+\end{equation}
+provided all of the items on the shopping list are able to be found.
+Thus, we can see that if $\textbf{S}$ is known, then $\textbf{H}$ follows by choosing the cheapest store for each item in $\textbf{A}$.  It also follows that $COST$ is monotonic with respect to the number of items in $\textbf{A}$.
+Therefore, A-Star can be applied and shall be applied to this measure time, and should be of quadratic time complexity.
 \subsection{User Management Subsystem}
 The User Management Subsystem will handle all requests from the front-end related to the user of the
 application and give back appropriate response. It will keep track of the currently logged in user.
