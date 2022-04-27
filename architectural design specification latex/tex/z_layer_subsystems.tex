@@ -12,7 +12,7 @@ The UserTable Subsystem will be used for storing identifiable information about 
 \end{figure}
 
 \subsubsection{Assumptions}
-The users email and username and password shall be needed and stored in the database.
+The users google ID, profile picture and Name shall be needed and stored in the database.
 
 \subsubsection{Responsibilities}
 Whenever a user is added to the system, their email, username, and password will be added to this table.  A global ID will also be used to improve data efficiency and ensure data integrity.  Their password is also stored as a hash instead of plain form for better security, but this field may end up being removed if it is proven obsolete by other authentication systems such as AWS authentication.  A few other noteworthy fields in this table are are "shopping\_list\_id" and "favorites\_list\_id" which point to the current shopping list and favorite items list, which will be discussed in subsection \ref{section:db.3}.

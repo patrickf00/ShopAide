@@ -82,12 +82,13 @@ The query management subsystem will also create all queries for users when they 
     \begin{tabular}{ | p{1cm} | p{5cm} | p{5cm} | p{5cm} |}
     \hline
     ID & Description & Inputs & Outputs \\ \hline
-    \#1 & Register & \pbox{5cm}{Email and password} & \pbox{5cm}{Response from database}  \\ \hline
-    \#2 & Login & \pbox{5cm}{Email and password} & \pbox{5cm}{Success or Failure}  \\ \hline
-    \#3 & Requests from Shopping List & \pbox{5cm}{Username or Email} & \pbox{5cm}{User's Shopping List from Database}  \\ \hline
-    \#4 & Requests from Recipes & \pbox{5cm}{Username or Email} & \pbox{5cm}{User's stored recipes}  \\ \hline
+    \#1 & Register & \pbox{5cm}{Google Account Details} & \pbox{5cm}{Response from database}  \\ \hline
+    \#2 & Login & \pbox{5cm}{Google Account Details} & \pbox{5cm}{Success or Failure}  \\ \hline
+    \#3 & Requests from Shopping List & \pbox{5cm}{User ID} & \pbox{5cm}{User's Shopping List from Database}  \\ \hline
+    \#4 & Requests from Recipes & \pbox{5cm}{User ID} & \pbox{5cm}{User's stored recipes}  \\ \hline
     \#5 & Search for Grocery Items & \pbox{5cm}{Search text from front-end} & \pbox{5cm}{Search Results}  \\ \hline
-    \end{tabular}
+    \#6 & Requests from Favorites List & \pbox{5cm}{User ID} & \pbox{5cm}{User's Favorites List from Database}  \\ \hline
+     \end{tabular}
 \end{center}
 \end{table}
 
@@ -109,7 +110,7 @@ The database controller subsystem will be responsible for handling all communica
     \begin{tabular}{ | p{1cm} | p{5cm} | p{5cm} | p{5cm} |}
     \hline
     ID & Description & Inputs & Outputs \\ \hline
-    \#1 & Requests from Query manager & \pbox{5cm}{Email and password} & \pbox{5cm}{Response from database}  \\ \hline
+    \#1 & Requests from Query manager & \pbox{5cm}{Google Account Details} & \pbox{5cm}{Response from database}  \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
